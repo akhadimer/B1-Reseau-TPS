@@ -105,11 +105,19 @@ La carte réseau enp0s3 ayant comme IP 10.0.2.15 (obtenue après un ip a) nous p
 ### 2. Wireshark
 #### A. Interception d'ARP et ping
 
-Après avoir effectué la commande `tcpdump -i enp0s9 -w ping.pcap` on peut effectivement constater que wireshark écoute bien sur l'interface réseau enp0s9 :
+* Après avoir effectué la commande `tcpdump -i enp0s9 -w ping.pcap` on peut effectivement constater que wireshark écoute bien sur l'interface réseau enp0s9 :
 
-![](https://i.ibb.co/MBNRzw7/Wireshark-tcpdump-routeur.png)
+    ![](https://i.ibb.co/MBNRzw7/Wireshark-tcpdump-routeur.png)
 
-Envoyer le fichier 'ping.pcap' sur votre hôte :
+* Envoyer le fichier 'ping.pcap' sur votre hôte :
 
-Effectuer cette commande pour transférer un fichier d'un point à un autre : `scp akha@10.1.0.254:/home/akha/ping.pcap B:\Bureau\ynov\B1\réseau\B1-Rese
-au-TPS\TP4`
+    Effectuer cette commande pour transférer un fichier d'un point à un autre : `scp akha@10.1.0.254:/home/akha/ping.pcap B:\Bureau\ynov\B1\réseau\B1-Reseau-TPS\TP4`
+
+* Voici ce que l'on obtient lors de l'ouverture du fichier 'ping.pcap' dans Wireshark :
+
+    ![](https://i.ibb.co/1XKq6fn/result-ping-pcap-wireshark.png)
+
+* Il vous manque la moitié des trames concernant cette communication, expliquez pourquoi :
+Les interfaces réseau connaissent déjà le chemin pour aller du client au serveur, il n'y a donc pas besoin de redemander les adresses MAC une deuxième fois pour renvoyer le message.
+
+#### B. Interception d'une communication netcat
