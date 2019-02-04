@@ -118,6 +118,12 @@ La carte réseau enp0s3 ayant comme IP 10.0.2.15 (obtenue après un ip a) nous p
     ![](https://i.ibb.co/1XKq6fn/result-ping-pcap-wireshark.png)
 
 * Il vous manque la moitié des trames concernant cette communication, expliquez pourquoi :
-Les interfaces réseau connaissent déjà le chemin pour aller du client au serveur, il n'y a donc pas besoin de redemander les adresses MAC une deuxième fois pour renvoyer le message.
+
+    Les interfaces réseau connaissent déjà le chemin pour aller du client au serveur, il n'y a donc pas besoin de redemander les adresses MAC une deuxième fois pour renvoyer le message.
 
 #### B. Interception d'une communication netcat
+
+Dans un premier temps intercepter le trafic depuis la VM route grâce à cette commande : `tcpdump -i enp0s9 -w netcat_ok.pcap`
+
+Ensuite autoriser les connexions sur le port TCP 5555 sur la VM serveur grâce à cette commande : `sudo firewall-cmd --add-port=5555/tcp --permanent`.
+
