@@ -101,3 +101,15 @@ Expliquer quelle machine porte l'IP qui vient de pop dans la table ARP :
 ![](https://i.ibb.co/cFNXPN5/ip-neigh-show-client-3.png)
 
 La carte réseau enp0s3 ayant comme IP 10.0.2.15 (obtenue après un ip a) nous permet d'accéder à internet, l'adresse IP 10.0.2.2 est alors l'adresse IP de la carte NAT.
+
+### 2. Wireshark
+#### A. Interception d'ARP et ping
+
+Après avoir effectué la commande `tcpdump -i enp0s9 -w ping.pcap` on peut effectivement constater que wireshark écoute bien sur l'interface réseau enp0s9 :
+
+![](https://i.ibb.co/MBNRzw7/Wireshark-tcpdump-routeur.png)
+
+Envoyer le fichier 'ping.pcap' sur votre hôte :
+
+Effectuer cette commande pour transférer un fichier d'un point à un autre : `scp akha@10.1.0.254:/home/akha/ping.pcap B:\Bureau\ynov\B1\réseau\B1-Rese
+au-TPS\TP4`
