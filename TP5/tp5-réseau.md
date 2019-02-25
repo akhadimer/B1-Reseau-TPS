@@ -25,6 +25,7 @@ Thomas DUMONT
         ```
 
     * Routeur 2 :
+
             Pour définir l'adresse IP sur la carte ethernet du routeur2 qui est connecté au routeur1 :
 
             ```
@@ -41,3 +42,27 @@ Thomas DUMONT
             (config-if)# ip address 10.5.2.254 255.255.255.0
             (config-if)# no shut
             ```
+
+* Checklist routes :
+
+    * Routeur 1 :
+
+        Route : ip route 10.5.2.0 255.255.255.0 10.5.3.2
+
+    * Routeur 2 :
+
+        Route : ip route 10.5.1.0 255.255.255.0 10.5.3.1
+
+    * Serveur 1 :
+
+        Route : 10.5.2.0/24 via 10.5.1.254 dev enp0s3
+
+    * Client 1 :
+
+        Route : 10.5.1.0/24 via 10.5.2.254 dev enp0s3
+
+    * Client 2 :
+
+        Route : 10.5.1.0/24 via 10.5.2.254 dev enp0s3
+
+*Bloqué, impossible de ping entre le serveur et le client*
