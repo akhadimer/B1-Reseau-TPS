@@ -26,22 +26,23 @@ Thomas DUMONT
 
     * Routeur 2 :
 
-            Pour définir l'adresse IP sur la carte ethernet du routeur2 qui est connecté au routeur1 :
+        Pour définir l'adresse IP sur la carte ethernet du routeur2 qui est connecté au routeur1 :
 
-            ```
-            # conf t
-            (config)# interface ethernet 0/0
-            (config-if)# ip address 10.5.3.2 255.255.255.252
-            (config-if)# no shut
-            ```
+        ```
+        # conf t
+        (config)# interface ethernet 0/0
+        (config-if)# ip address 10.5.3.2 255.255.255.252
+        (config-if)# no shut
+        ```
 
-            Pour définir l'adresse IP sur la carte ethernet du routeur2 qui est connecté au switch :
-
-            # conf t
-            (config)# interface ethernet 0/1
-            (config-if)# ip address 10.5.2.254 255.255.255.0
-            (config-if)# no shut
-            ```
+        Pour définir l'adresse IP sur la carte ethernet du routeur2 qui est connecté au switch :
+        
+        ```
+        # conf t
+        (config)# interface ethernet 0/1
+        (config-if)# ip address 10.5.2.254 255.255.255.0
+        (config-if)# no shut
+        ```
 
 * Checklist routes :
 
@@ -78,4 +79,4 @@ Thomas DUMONT
 
 * Après avoir effectué la commande ``sudo systemctl start dhcpd``, on peut remarquer que le serveur dhcpd est bien activé avec la commande ``systemctl status dhcpd`` :
 
-![https://image.noelshack.com/fichiers/2019/09/2/1551213875-result-status-dhcpd.png]()
+![](https://image.noelshack.com/fichiers/2019/09/2/1551213875-result-status-dhcpd.png)
