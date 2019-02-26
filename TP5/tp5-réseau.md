@@ -85,60 +85,60 @@ Après avoir effectué la commande ``sudo systemctl start dhcpd``, on peut remar
 
 * Faire un test :
 
-La configuration de la carte réseau enp0s8 sur la VM client1 est la suivante :
+    La configuration de la carte réseau enp0s8 sur la VM client1 est la suivante :
 
-```
-NAME=enp0s8
-DEVICE=enp0s8
+    ```
+    NAME=enp0s8
+    DEVICE=enp0s8
 
-BOOTPROTO=dhcp
-ONBOOT=yes
-```
+    BOOTPROTO=dhcp
+    ONBOOT=yes
+    ```
 
-Utilisation de dhclient :
-    
-* Lacher le bail DHCP :
+    Utilisation de dhclient :
+        
+    * Lacher le bail DHCP :
 
-```
-[root@localhost akha]# dhclient -v -r
-Internet Systems Consortium DHCP Client 4.2.5
-Copyright 2004-2013 Internet Systems Consortium.
-All rights reserved.
-For info, please visit https://www.isc.org/software/dhcp/
+    ```
+    [root@localhost akha]# dhclient -v -r
+    Internet Systems Consortium DHCP Client 4.2.5
+    Copyright 2004-2013 Internet Systems Consortium.
+    All rights reserved.
+    For info, please visit https://www.isc.org/software/dhcp/
 
-Listening on LPF/enp0s8/08:00:27:33:36:16
-Sending on   LPF/enp0s8/08:00:27:33:36:16
-Listening on LPF/enp0s3/08:00:27:c9:d8:70
-Sending on   LPF/enp0s3/08:00:27:c9:d8:70
-Sending on   Socket/fallback
-DHCPRELEASE on enp0s8 to 192.168.55.2 port 67 (xid=0x3253d99c)
-DHCPRELEASE on enp0s3 to 10.5.2.11 port 67 (xid=0x61788c86)
-```
+    Listening on LPF/enp0s8/08:00:27:33:36:16
+    Sending on   LPF/enp0s8/08:00:27:33:36:16
+    Listening on LPF/enp0s3/08:00:27:c9:d8:70
+    Sending on   LPF/enp0s3/08:00:27:c9:d8:70
+    Sending on   Socket/fallback
+    DHCPRELEASE on enp0s8 to 192.168.55.2 port 67 (xid=0x3253d99c)
+    DHCPRELEASE on enp0s3 to 10.5.2.11 port 67 (xid=0x61788c86)
+    ```
 
-* Redemander une IP :
+    * Redemander une IP :
 
-```
-[root@localhost akha]# dhclient -v
-Internet Systems Consortium DHCP Client 4.2.5
-Copyright 2004-2013 Internet Systems Consortium.
-All rights reserved.
-For info, please visit https://www.isc.org/software/dhcp/
+    ```
+    [root@localhost akha]# dhclient -v
+    Internet Systems Consortium DHCP Client 4.2.5
+    Copyright 2004-2013 Internet Systems Consortium.
+    All rights reserved.
+    For info, please visit https://www.isc.org/software/dhcp/
 
-Listening on LPF/enp0s8/08:00:27:33:36:16
-Sending on   LPF/enp0s8/08:00:27:33:36:16
-Listening on LPF/enp0s3/08:00:27:c9:d8:70
-Sending on   LPF/enp0s3/08:00:27:c9:d8:70
-Sending on   Socket/fallback
-DHCPDISCOVER on enp0s8 to 255.255.255.255 port 67 interval 8 (xid=0x66afdecf)
-DHCPDISCOVER on enp0s3 to 255.255.255.255 port 67 interval 6 (xid=0x7787c1bd)
-DHCPREQUEST on enp0s8 to 255.255.255.255 port 67 (xid=0x66afdecf)
-DHCPOFFER from 192.168.55.2
-DHCPACK from 192.168.55.2 (xid=0x66afdecf)
-bound to 192.168.55.4 -- renewal in 487 seconds.
-```
+    Listening on LPF/enp0s8/08:00:27:33:36:16
+    Sending on   LPF/enp0s8/08:00:27:33:36:16
+    Listening on LPF/enp0s3/08:00:27:c9:d8:70
+    Sending on   LPF/enp0s3/08:00:27:c9:d8:70
+    Sending on   Socket/fallback
+    DHCPDISCOVER on enp0s8 to 255.255.255.255 port 67 interval 8 (xid=0x66afdecf)
+    DHCPDISCOVER on enp0s3 to 255.255.255.255 port 67 interval 6 (xid=0x7787c1bd)
+    DHCPREQUEST on enp0s8 to 255.255.255.255 port 67 (xid=0x66afdecf)
+    DHCPOFFER from 192.168.55.2
+    DHCPACK from 192.168.55.2 (xid=0x66afdecf)
+    bound to 192.168.55.4 -- renewal in 487 seconds.
+    ```
 
 ### 2. Explorer un peu DHCP
 
 Screen de la capture wireshark effectué l'échange du DORA entre client1 et dhcp-net2 :
 
-![](https://www.noelshack.com/2019-09-2-1551221019-wireshark.png)
+![](https://image.noelshack.com/fichiers/2019/09/2/1551221019-wireshark.png)
