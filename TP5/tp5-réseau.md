@@ -136,3 +136,9 @@ DHCPOFFER from 192.168.55.2
 DHCPACK from 192.168.55.2 (xid=0x66afdecf)
 bound to 192.168.55.4 -- renewal in 487 seconds.
 ```
+
+### 2. Explorer un peu DHCP
+
+Screen de la capture wireshark effectué l'échange du DORA entre client1 et dhcp-net2 :
+
+![](https://www.noelshack.com/2019-09-2-1551221019-wireshark.png)
