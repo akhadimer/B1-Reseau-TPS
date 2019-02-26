@@ -79,4 +79,5 @@ Thomas DUMONT
 
 * Après avoir effectué la commande ``sudo systemctl start dhcpd``, on peut remarquer que le serveur dhcpd est bien activé avec la commande ``systemctl status dhcpd`` :
 
-![](https://image.noelshack.com/fichiers/2019/09/2/1551213875-result-status-dhcpd.png)
+![](https://image.noelshack.com/fichiers/2019/09/2/1551217395-result-status-dhcpd.png)
+
