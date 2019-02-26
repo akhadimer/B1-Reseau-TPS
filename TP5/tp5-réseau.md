@@ -20,7 +20,7 @@ Thomas DUMONT
         ```
         # conf t
         (config)# interface ethernet 0/0
-        (config-if)# ip address 10.5.3.1 255.255.255.254
+        (config-if)# ip address 10.5.3.1 255.255.255.252
         (config-if)# no shut
         ```
 
@@ -31,7 +31,7 @@ Thomas DUMONT
             ```
             # conf t
             (config)# interface ethernet 0/0
-            (config-if)# ip address 10.5.3.2 255.255.255.254
+            (config-if)# ip address 10.5.3.2 255.255.255.252
             (config-if)# no shut
             ```
 
@@ -65,4 +65,17 @@ Thomas DUMONT
 
         Route : 10.5.1.0/24 via 10.5.2.254 dev enp0s3
 
-*Bloqué, impossible de ping entre le serveur et le client*
+## III. DHCP
+### 1. Mise en place du serveur DHCP
+
+* Renommer la machine
+
+    Aller dans le fichier /etc/hostname et écrire :
+
+    ```
+    dhcp-net2.tp5
+    ```
+
+* Après avoir effectué la commande ``sudo systemctl start dhcpd``, on peut remarquer que le serveur dhcpd est bien activé avec la commande ``systemctl status dhcpd`` :
+
+![https://image.noelshack.com/fichiers/2019/09/2/1551213875-result-status-dhcpd.png]()
