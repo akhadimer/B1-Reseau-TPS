@@ -28,7 +28,7 @@ On parle de `client1.tp6.b1`, `client2.tp6.b1` et `server1.tp6.b1` :
 
 * Partage de routes :
 
-    Maintenant il faut partager les routes sur les 5 routeurs en indiquant les zones dans lesquels ils sont selon le réseau partagé :
+    Maintenant il faut partager les routes sur les 5 routeurs en indiquant les zones dans lesquels ils sont selon le réseau partagé en effectuant les commandes suivantes :
 
     * R1 :
 
@@ -50,10 +50,44 @@ On parle de `client1.tp6.b1`, `client2.tp6.b1` et `server1.tp6.b1` :
 
         `network 10.6.100.8 0.0.0.3 area 0`
 
-        `network 10.6.100.8 0.0.0.3 area 1`
+        `network 10.6.101.0 0.0.0.3 area 1`
 
     * R4 :
 
         `network 10.6.100.4 0.0.0.3 area 0`
 
         `network 10.6.100.12 0.0.0.3 area 0`
+
+    * R5 :
+
+        `network 10.6.101.0 0.0.0.3 area 1`
+
+        `network 10.6.201.0 0.0.0.255 area 1`
+
+* Vérifier que ça fonctionne :
+
+    * `show ip route`:
+
+        Pour le router1 il est possible d'obtenir ce résultat :
+
+        ![](https://image.noelshack.com/fichiers/2019/11/5/1552684872-show-ip-route.png)
+
+    * `show ip protocols` :
+
+        ![](https://image.noelshack.com/fichiers/2019/11/5/1552685581-show-ip-protocols.png)
+
+    * `show ip ospf neighbor` :
+
+        ![](https://image.noelshack.com/fichiers/2019/11/5/1552685089-show-ip-ospf-neighbor.png)
+
+    * ping r1.tp6.b1 --> r5.tp6.b1 :
+
+        ![](https://image.noelshack.com/fichiers/2019/11/5/1552685289-ping-r1tor5.png)
+
+    * ping client1.tp6.b1 --> server1.tp6.b1 :
+
+        ![](https://image.noelshack.com/fichiers/2019/11/5/1552685412-ping-client1toserver1.png)
+
+    * `traceroute client2` depuis le server1 :
+
+        ![](https://image.noelshack.com/fichiers/2019/11/5/1552685968-traceroute-server1toclient2.png)
