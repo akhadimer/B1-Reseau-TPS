@@ -91,3 +91,11 @@ On parle de `client1.tp6.b1`, `client2.tp6.b1` et `server1.tp6.b1` :
     * `traceroute client2` depuis le server1 :
 
         ![](https://image.noelshack.com/fichiers/2019/11/5/1552685968-traceroute-server1toclient2.png)
+
+## Lab 3 : Let's end this properly
+
+### 1. NAT : accès internet
+
+Après avoir configuré le router4 pour qu'il ai accès à internet et qu'il puisse donner accès à internet à toutes les VMS, on peut effectivement confirmer le bon fonctionnement en observant les résultats suivant :
+
+
