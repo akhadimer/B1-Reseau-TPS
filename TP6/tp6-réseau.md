@@ -98,4 +98,15 @@ On parle de `client1.tp6.b1`, `client2.tp6.b1` et `server1.tp6.b1` :
 
 Après avoir configuré le router4 pour qu'il ai accès à internet et qu'il puisse donner accès à internet à toutes les VMS, on peut effectivement confirmer le bon fonctionnement en observant les résultats suivant :
 
+* client2 :
+
+    ![](https://image.noelshack.com/fichiers/2019/11/6/1552767216-client2-ping-8-8-8-8.png)
+
+* router2 :
+
+    ![](https://image.noelshack.com/fichiers/2019/11/6/1552767361-r2-ping-google-com.png)
+
+### 2. Un service d'infra
+
+Pour pouvoir accèder à internet depuis les VMS client1, client2 et server1 il a fallu que j'aille dans le dossier "/etc/resolv.conf" et que j'ajoute la ligne `nameserver 8.8.8.8`.
 
