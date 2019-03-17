@@ -110,3 +110,26 @@ Après avoir configuré le router4 pour qu'il ai accès à internet et qu'il pui
 
 Pour pouvoir accèder à internet depuis les VMS client1, client2 et server1 il a fallu que j'aille dans le dossier "/etc/resolv.conf" et que j'ajoute la ligne `nameserver 8.8.8.8`.
 
+* server1 :
+
+    Après le lancement du serveur web et un curl localhost, on peut effectivement constater que le serveur fonctionne :
+
+    ![](https://image.noelshack.com/fichiers/2019/11/7/1552837769-server1-curl-localhost.png)
+
+* client1 :
+
+    Après un `curl server1.tp6.b1`, je peux effectivement accèder au serveur qui est sur la VM server1 :
+
+    ![](https://image.noelshack.com/fichiers/2019/11/7/1552837880-client1-curl-server1.png)
+
+### 3. Serveur DHCP
+
+Configuration du fichier dhcpd.conf dans la VM client1 : 
+
+![](https://image.noelshack.com/fichiers/2019/11/7/1552836541-dhcpd-conf-client2.png)
+
+Suite à l'activation du DHCP dans la VM client1 ainsi qu'à la configuration de l'interface réseau en DHCP dans la VM client2, on peut effectivement constater que l'IP du client2 est bien dans la plage d'IP définie dans dhcpd.conf :
+
+![](https://image.noelshack.com/fichiers/2019/11/7/1552836726-dhcp-client1-ip.png)
+
+### 4. Serveur DNS
