@@ -137,6 +137,7 @@ Suite à l'activation du DHCP dans la VM client1 ainsi qu'à la configuration de
 Après avoir mis en place le serveur DNS sur la VM server1, voici quelques test pour confirmer qu'il fonctionne correctement :
 
 * dig server1.tp6.b1 :
+
     ![](https://image.noelshack.com/fichiers/2019/11/7/1552843471-dig-server1.png)
 
 * dig client2.tp6.b1 :
@@ -146,3 +147,8 @@ Après avoir mis en place le serveur DNS sur la VM server1, voici quelques test 
 * dig -x 10.6.201.10 :
 
     ![](https://image.noelshack.com/fichiers/2019/11/7/1552844316-dig-x-10-6-201-10.png)
+
+Pour distribuer aux clients l'adresse de leur nouveau serveur DNS grâce au serveur DHCP, il faut rajouter la ligne `option domain-name-servers 10.6.202.10;` entre les accolades de la fonction subnet.
+
+### 5. Serveur NTP
+
